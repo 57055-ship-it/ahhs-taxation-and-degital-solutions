@@ -88,10 +88,11 @@ export default function ComplianceRoadmap({ onOpenConsultation }) {
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '1.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))',
+            gap: '1.25rem',
             marginBottom: '3rem'
           }}
+          className="roadmap-grid"
         >
           {filteredItems.map((item, idx) => {
             const isCritical = item.urgency === 'Critical';
@@ -100,7 +101,7 @@ export default function ComplianceRoadmap({ onOpenConsultation }) {
             return (
               <div 
                 key={idx}
-                className="glass-card"
+                className="glass-card roadmap-card"
                 style={{
                   padding: '1.85rem',
                   background: 'var(--bg-card)',
@@ -210,7 +211,7 @@ export default function ComplianceRoadmap({ onOpenConsultation }) {
 
         {/* Retainer Banner Callout */}
         <div 
-          className="glass-card"
+          className="glass-card retainer-callout-card"
           style={{
             padding: '2.5rem',
             borderRadius: '1.25rem',
@@ -221,12 +222,14 @@ export default function ComplianceRoadmap({ onOpenConsultation }) {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            width: '100%',
+            maxWidth: '100%'
           }}
         >
           <div style={{ maxWidth: '650px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <Bell size={20} style={{ color: 'var(--ocean-light)' }} />
+              <Bell size={20} style={{ color: 'var(--ocean-light)', flexShrink: 0 }} />
               <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff' }}>
                 Join the AHHS Continuous Compliance Retainer
               </h3>
@@ -236,7 +239,7 @@ export default function ComplianceRoadmap({ onOpenConsultation }) {
             </p>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: 'auto' }} className="retainer-btn-wrap">
             <button
               onClick={onOpenConsultation}
               className="btn btn-primary"
@@ -248,6 +251,26 @@ export default function ComplianceRoadmap({ onOpenConsultation }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .roadmap-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .roadmap-card {
+            padding: 1.35rem 1rem !important;
+          }
+          .retainer-callout-card {
+            padding: 1.5rem 1rem !important;
+          }
+          .retainer-btn-wrap {
+            width: 100% !important;
+          }
+          .retainer-btn-wrap .btn {
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

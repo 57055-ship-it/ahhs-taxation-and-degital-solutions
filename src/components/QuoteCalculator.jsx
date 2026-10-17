@@ -99,13 +99,15 @@ export default function QuoteCalculator({ onOpenConsultation }) {
         >
           {/* Left: Interactive Selection Fields */}
           <div 
-            className="glass-card" 
+            className="glass-card calc-left-card" 
             style={{ 
               padding: '2.25rem', 
               background: 'var(--bg-card)',
               border: '1px solid var(--border-subtle)',
               borderRadius: '1.25rem',
-              boxShadow: '0 10px 30px rgba(10, 37, 64, 0.05)'
+              boxShadow: '0 10px 30px rgba(10, 37, 64, 0.05)',
+              width: '100%',
+              maxWidth: '100%'
             }}
           >
             {/* Step 1: Entity Structure */}
@@ -135,9 +137,10 @@ export default function QuoteCalculator({ onOpenConsultation }) {
               <div 
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
                   gap: '0.75rem'
                 }}
+                className="calc-entity-grid"
               >
                 {ENTITY_TYPES.map((entity) => {
                   const isSelected = selectedEntity.id === entity.id;
@@ -183,35 +186,38 @@ export default function QuoteCalculator({ onOpenConsultation }) {
 
             {/* Step 2: Select Services */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-                <span 
-                  style={{
-                    width: '28px',
-                    height: '28px',
-                    borderRadius: '50%',
-                    background: 'var(--ocean-primary)',
-                    color: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.85rem',
-                    fontWeight: 700
-                  }}
-                >
-                  2
-                </span>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--navy-primary)' }}>
-                  Select Services Needed
-                </h3>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                  <span 
+                    style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      background: 'var(--ocean-primary)',
+                      color: '#ffffff',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.85rem',
+                      fontWeight: 700
+                    }}
+                  >
+                    2
+                  </span>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--navy-primary)' }}>
+                    Select Services Needed
+                  </h3>
+                </div>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>(Choose 1 or more)</span>
               </div>
 
               <div 
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
                   gap: '0.75rem'
                 }}
+                className="calc-services-grid"
               >
                 {SERVICE_OPTIONS.map((srv) => {
                   const isChecked = selectedServices.includes(srv.id);
@@ -288,7 +294,7 @@ export default function QuoteCalculator({ onOpenConsultation }) {
 
           {/* Right: Real-time Calculation Summary Card */}
           <div 
-            className="glass-card" 
+            className="glass-card calc-right-card" 
             style={{
               padding: '2.25rem',
               borderRadius: '1.25rem',
@@ -296,7 +302,9 @@ export default function QuoteCalculator({ onOpenConsultation }) {
               background: 'linear-gradient(150deg, #0A2540 0%, #071D32 100%)',
               boxShadow: '0 20px 45px rgba(10, 37, 64, 0.18)',
               position: 'sticky',
-              top: '100px'
+              top: '100px',
+              width: '100%',
+              maxWidth: '100%'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
@@ -317,7 +325,7 @@ export default function QuoteCalculator({ onOpenConsultation }) {
               <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Target Entity
               </div>
-              <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--gold-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.2rem' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--gold-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.2rem', flexWrap: 'wrap' }}>
                 <span>{selectedEntity.icon}</span>
                 <span>{selectedEntity.name}</span>
               </div>
@@ -389,6 +397,26 @@ export default function QuoteCalculator({ onOpenConsultation }) {
         @media (max-width: 992px) {
           .calculator-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.75rem !important;
+          }
+          .calc-right-card {
+            position: static !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .calc-left-card, .calc-right-card {
+            padding: 1.5rem 1rem !important;
+          }
+          .calc-services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .calc-entity-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .calc-left-card, .calc-right-card {
+            padding: 1.25rem 0.85rem !important;
           }
         }
       `}</style>

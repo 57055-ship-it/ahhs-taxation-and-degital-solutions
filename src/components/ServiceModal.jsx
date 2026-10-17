@@ -21,6 +21,7 @@ export default function ServiceModal({ service, onClose, onBookConsultation }) {
 
   return (
     <div 
+      className="modal-backdrop-overlay"
       style={{
         position: 'fixed',
         inset: 0,
@@ -36,7 +37,7 @@ export default function ServiceModal({ service, onClose, onBookConsultation }) {
       onClick={onClose}
     >
       <div 
-        className="glass-card"
+        className="glass-card service-modal-card"
         style={{
           width: '100%',
           maxWidth: '680px',
@@ -76,7 +77,7 @@ export default function ServiceModal({ service, onClose, onBookConsultation }) {
 
         {/* Header */}
         <div style={{ marginBottom: '1.5rem', paddingRight: '2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
             <span className={`badge ${isTax ? 'badge-gold' : 'badge-cyan'}`}>
               {isTax ? '🏛️ Taxation & Financial Advisory' : '💻 Digital Solutions & Software'}
             </span>
@@ -94,18 +95,19 @@ export default function ServiceModal({ service, onClose, onBookConsultation }) {
             </span>
           </div>
 
-          <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-main)' }}>
+          <h3 style={{ fontSize: 'clamp(1.3rem, 3.5vw, 1.75rem)', fontWeight: 800, color: 'var(--text-main)' }}>
             {service.title}
           </h3>
         </div>
 
         {/* Overview paragraph */}
-        <p style={{ fontSize: '1rem', lineHeight: 1.65, color: 'var(--text-body)', marginBottom: '1.5rem' }}>
+        <p style={{ fontSize: '0.95rem', lineHeight: 1.65, color: 'var(--text-body)', marginBottom: '1.5rem' }}>
           {service.description}
         </p>
 
         {/* Timeline & Deliverables Box */}
         <div 
+          className="service-meta-box"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
@@ -179,7 +181,10 @@ export default function ServiceModal({ service, onClose, onBookConsultation }) {
         </div>
 
         {/* Action Buttons */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+        <div 
+          className="service-modal-actions"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
+        >
           <a
             href={whatsappUrl}
             target="_blank"
@@ -204,6 +209,24 @@ export default function ServiceModal({ service, onClose, onBookConsultation }) {
           </button>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 576px) {
+          .modal-backdrop-overlay {
+            padding: 0.75rem !important;
+          }
+          .service-modal-card {
+            padding: 1.35rem 1rem !important;
+          }
+          .service-meta-box {
+            grid-template-columns: 1fr !important;
+            gap: 1.25rem !important;
+          }
+          .service-modal-actions {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

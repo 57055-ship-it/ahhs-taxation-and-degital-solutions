@@ -41,7 +41,7 @@ export default function TestimonialsSection({ onOpenConsultation }) {
           {TESTIMONIALS.map((t, idx) => (
             <div
               key={idx}
-              className="glass-card"
+              className="glass-card testimonial-card"
               style={{
                 padding: '2.25rem',
                 borderRadius: '1.25rem',
@@ -119,7 +119,7 @@ export default function TestimonialsSection({ onOpenConsultation }) {
 
         {/* Global Tech & Collaboration Showcase Strip */}
         <div 
-          className="glass-card"
+          className="glass-card testimonial-showcase-strip"
           style={{
             padding: '2rem 2.5rem',
             borderRadius: '1.25rem',
@@ -161,7 +161,7 @@ export default function TestimonialsSection({ onOpenConsultation }) {
 
           <button
             onClick={onOpenConsultation}
-            className="btn btn-primary"
+            className="btn btn-primary showcase-btn"
             style={{ padding: '0.75rem 1.4rem', fontSize: '0.88rem' }}
           >
             <span>Book Case Evaluation</span>
@@ -169,6 +169,24 @@ export default function TestimonialsSection({ onOpenConsultation }) {
           </button>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .testimonial-card {
+            padding: 1.35rem 1rem !important;
+          }
+          .testimonial-showcase-strip {
+            padding: 1.5rem 1.15rem !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            text-align: left !important;
+          }
+          .showcase-btn {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

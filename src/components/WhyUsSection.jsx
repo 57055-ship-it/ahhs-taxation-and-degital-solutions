@@ -29,24 +29,32 @@ export default function WhyUsSection({ onOpenConsultation }) {
           </p>
         </div>
 
+        {/* Mobile Swipe Hint */}
+        <div className="mobile-table-scroll-hint">
+          <span>↔ Swipe table horizontally to view full matrix</span>
+        </div>
+
         {/* Comparative Matrix Table */}
         <div 
-          className="glass-card"
+          className="glass-card why-us-table-card"
           style={{
             overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
             borderRadius: '1.25rem',
             border: '1px solid var(--border-subtle)',
             background: 'var(--bg-card)',
             boxShadow: 'var(--shadow-card)',
             padding: '1.5rem',
-            marginBottom: '3rem'
+            marginBottom: '3rem',
+            width: '100%',
+            maxWidth: '100%'
           }}
         >
           <table 
             style={{
               width: '100%',
               borderCollapse: 'collapse',
-              minWidth: '750px',
+              minWidth: '700px',
               textAlign: 'left'
             }}
           >
@@ -137,7 +145,7 @@ export default function WhyUsSection({ onOpenConsultation }) {
         {/* 3 Pillars Cards */}
         <div className="grid grid-cols-3">
           <div 
-            className="glass-card"
+            className="glass-card why-us-card"
             style={{
               padding: '2.25rem',
               borderRadius: '1.25rem',
@@ -171,7 +179,7 @@ export default function WhyUsSection({ onOpenConsultation }) {
           </div>
 
           <div 
-            className="glass-card"
+            className="glass-card why-us-card"
             style={{
               padding: '2.25rem',
               borderRadius: '1.25rem',
@@ -205,7 +213,7 @@ export default function WhyUsSection({ onOpenConsultation }) {
           </div>
 
           <div 
-            className="glass-card"
+            className="glass-card why-us-card"
             style={{
               padding: '2.25rem',
               borderRadius: '1.25rem',
@@ -239,6 +247,34 @@ export default function WhyUsSection({ onOpenConsultation }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .mobile-table-scroll-hint {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--gold-dark);
+          margin-bottom: 0.75rem;
+          padding: 0.5rem 0.85rem;
+          background: var(--gold-light);
+          border: 1px solid var(--border-gold);
+          border-radius: 0.5rem;
+          text-align: center;
+        }
+        @media (max-width: 768px) {
+          .mobile-table-scroll-hint {
+            display: flex;
+          }
+          .why-us-table-card {
+            padding: 1rem 0.5rem !important;
+          }
+          .why-us-card {
+            padding: 1.5rem 1.25rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

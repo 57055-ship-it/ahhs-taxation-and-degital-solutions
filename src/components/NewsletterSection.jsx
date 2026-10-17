@@ -16,7 +16,7 @@ export default function NewsletterSection() {
     <section style={{ padding: '4rem 0', position: 'relative' }}>
       <div className="container">
         <div 
-          className="glass-card"
+          className="glass-card newsletter-grid newsletter-card"
           style={{
             padding: '3rem 2.75rem',
             borderRadius: '1.25rem',
@@ -28,7 +28,6 @@ export default function NewsletterSection() {
             gap: '2.5rem',
             alignItems: 'center'
           }}
-          className="newsletter-grid"
         >
           {/* Left info */}
           <div>
@@ -36,7 +35,7 @@ export default function NewsletterSection() {
               <Mail size={13} />
               <span>Executive Briefing</span>
             </div>
-            <h3 style={{ fontSize: '1.85rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.65rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.85rem)', fontWeight: 800, color: '#ffffff', marginBottom: '0.65rem' }}>
               Stay Ahead of <span className="text-gradient-gold">FBR Regulatory Changes</span> & Digital Tech
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: 1.6 }}>
@@ -67,7 +66,7 @@ export default function NewsletterSection() {
               </div>
             ) : (
               <form onSubmit={handleSubscribe} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <div className="newsletter-form-row" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                   <input
                     type="email"
                     required
@@ -76,7 +75,7 @@ export default function NewsletterSection() {
                     onChange={(e) => setEmail(e.target.value)}
                     style={{
                       flex: 1,
-                      minWidth: '220px',
+                      minWidth: '200px',
                       padding: '0.85rem 1.15rem',
                       borderRadius: '0.55rem',
                       background: 'rgba(255, 255, 255, 0.08)',
@@ -108,7 +107,25 @@ export default function NewsletterSection() {
         @media (max-width: 992px) {
           .newsletter-grid {
             grid-template-columns: 1fr !important;
-            gap: 1.5rem !important;
+            gap: 1.75rem !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .newsletter-card {
+            padding: 1.75rem 1.25rem !important;
+          }
+        }
+        @media (max-width: 576px) {
+          .newsletter-form-row {
+            flex-direction: column !important;
+          }
+          .newsletter-form-row input {
+            min-width: 0 !important;
+            width: 100% !important;
+          }
+          .newsletter-form-row button {
+            width: 100% !important;
+            justify-content: center !important;
           }
         }
       `}</style>

@@ -39,13 +39,13 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
   ];
 
   return (
-    <header className="navbar-wrapper" style={{ position: 'sticky', top: 0, zIndex: 1000, width: '100%' }}>
+    <header className="navbar-wrapper" style={{ position: 'sticky', top: 0, zIndex: 1000, width: '100%', maxWidth: '100vw' }}>
       {/* Top Announcement Bar */}
       <div 
         style={{
           background: 'var(--topbar-bg)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          padding: '0.45rem 1.5rem',
+          padding: '0.4rem 1rem',
           fontSize: '0.8rem',
           color: '#cbd5e1'
         }}
@@ -57,11 +57,11 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '0.75rem'
+            gap: '0.5rem'
           }}
         >
           {/* Left contact info */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <a 
               href={`tel:${COMPANY_INFO.phone1Raw}`} 
               style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#e2e8f0' }}
@@ -75,7 +75,7 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
               target="_blank" 
               rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#6ee7b7' }}
-              className="top-link"
+              className="top-link top-bar-secondary"
             >
               <MessageCircle size={13} />
               <span>{COMPANY_INFO.phone2} (WhatsApp)</span>
@@ -87,7 +87,7 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
           </div>
 
           {/* Right badges */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }} className="top-bar-secondary">
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#f5c469', fontSize: '0.75rem', fontWeight: 600 }}>
               <ShieldCheck size={13} /> FBR & SECP Registered
             </span>
@@ -106,7 +106,7 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderBottom: isScrolled ? '1px solid var(--border-medium)' : '1px solid var(--nav-border)',
-          padding: '0.75rem 1.5rem',
+          padding: '0.65rem 1rem',
           transition: 'all 0.3s ease',
           boxShadow: isScrolled ? '0 8px 25px -4px rgba(0, 0, 0, 0.09)' : '0 2px 10px rgba(0, 0, 0, 0.03)'
         }}
@@ -125,14 +125,15 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '0.75rem',
-              textDecoration: 'none'
+              gap: '0.65rem',
+              textDecoration: 'none',
+              maxWidth: 'calc(100% - 100px)'
             }}
           >
             <div 
               style={{
-                width: '46px',
-                height: '46px',
+                width: '42px',
+                height: '42px',
                 borderRadius: '0.65rem',
                 overflow: 'hidden',
                 background: '#ffffff',
@@ -141,7 +142,8 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
                 justifyContent: 'center',
                 padding: '2px',
                 boxShadow: '0 2px 10px rgba(10, 37, 64, 0.08)',
-                border: '1px solid var(--border-subtle)'
+                border: '1px solid var(--border-subtle)',
+                flexShrink: 0
               }}
             >
               <img 
@@ -150,15 +152,16 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
             </div>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'nowrap' }}>
+                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>
                   AHHS
                 </span>
                 <span 
+                  className="nav-dual-badge"
                   style={{ 
-                    fontSize: '0.65rem', 
-                    padding: '0.18rem 0.5rem', 
+                    fontSize: '0.62rem', 
+                    padding: '0.15rem 0.45rem', 
                     borderRadius: '4px', 
                     background: 'var(--gold-light)',
                     border: '1px solid var(--border-gold)',
@@ -171,7 +174,7 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
                   DUAL ADVANTAGE
                 </span>
               </div>
-              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase', marginTop: '-2px', fontWeight: 600 }}>
+              <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', letterSpacing: '0.03em', textTransform: 'uppercase', marginTop: '-2px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 Taxation & Digital Solutions
               </div>
             </div>
@@ -300,11 +303,13 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
             style={{
               background: 'var(--bg-card)',
               borderTop: '1px solid var(--border-subtle)',
-              padding: '1.5rem',
+              padding: '1.25rem 1rem',
               display: 'flex',
               flexDirection: 'column',
               gap: '0.85rem',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.15)'
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.15)',
+              maxHeight: 'calc(100vh - 100px)',
+              overflowY: 'auto'
             }}
           >
             {/* Mobile Theme Preference Row */}
@@ -413,6 +418,14 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
           }
           .mobile-toggle-btn {
             display: flex !important;
+          }
+        }
+        @media (max-width: 576px) {
+          .nav-dual-badge {
+            display: none !important;
+          }
+          .top-bar-secondary {
+            display: none !important;
           }
         }
       `}</style>

@@ -151,7 +151,10 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div 
+              style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}
+              className="hero-cta-group"
+            >
               <button
                 onClick={onOpenConsultation}
                 className="btn btn-primary"
@@ -193,15 +196,15 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
           </div>
 
           {/* Right Column: Clean Executive Control Center Showcase Card */}
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '100%' }}>
             {/* Subtle glow border */}
             <div 
               style={{
                 position: 'absolute',
-                inset: '-10px',
-                borderRadius: '1.5rem',
+                inset: 0,
+                borderRadius: '1.25rem',
                 background: 'linear-gradient(135deg, rgba(197, 155, 39, 0.15) 0%, rgba(2, 132, 199, 0.15) 100%)',
-                filter: 'blur(20px)',
+                filter: 'blur(15px)',
                 opacity: 0.7,
                 zIndex: 0
               }}
@@ -209,7 +212,7 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
 
             {/* Executive Card Container */}
             <div 
-              className="glass-card"
+              className="glass-card hero-showcase-card"
               style={{
                 position: 'relative',
                 zIndex: 1,
@@ -217,7 +220,9 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                 border: '1px solid var(--border-subtle)',
                 background: 'var(--bg-card)',
                 borderRadius: '1.25rem',
-                boxShadow: 'var(--shadow-card-hover)'
+                boxShadow: 'var(--shadow-card-hover)',
+                width: '100%',
+                maxWidth: '100%'
               }}
             >
               {/* Header of preview card */}
@@ -228,7 +233,9 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                   alignItems: 'center',
                   marginBottom: '1rem',
                   paddingBottom: '0.75rem',
-                  borderBottom: '1px solid #f1f5f9'
+                  borderBottom: '1px solid #f1f5f9',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
@@ -236,7 +243,7 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                   <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }} />
                   <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }} />
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: '0.5rem', fontFamily: 'monospace', fontWeight: 600 }}>
-                    ahhs-terminal // fiscal_tech_os v4.2
+                    ahhs-terminal // fiscal_tech_os
                   </span>
                 </div>
                 <div 
@@ -253,7 +260,7 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                   }}
                 >
                   <Lock size={12} />
-                  <span>100% Encrypted & FBR Ready</span>
+                  <span>100% Encrypted</span>
                 </div>
               </div>
 
@@ -280,16 +287,18 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                 
                 {/* Overlay status banner */}
                 <div 
+                  className="hero-status-banner"
                   style={{
                     position: 'absolute',
-                    bottom: '12px',
-                    left: '12px',
-                    right: '12px',
+                    bottom: '10px',
+                    left: '10px',
+                    right: '10px',
                     background: 'var(--nav-bg)',
                     backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: '0.65rem',
-                    padding: '0.6rem 0.85rem',
+                    padding: '0.5rem 0.75rem',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
@@ -297,26 +306,27 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                     <div 
                       style={{
-                        padding: '0.35rem',
-                        borderRadius: '0.4rem',
+                        padding: '0.3rem',
+                        borderRadius: '0.35rem',
                         background: 'var(--gold-light)',
-                        color: 'var(--gold-primary)'
+                        color: 'var(--gold-primary)',
+                        display: 'flex'
                       }}
                     >
-                      <ShieldCheck size={16} />
+                      <ShieldCheck size={14} />
                     </div>
                     <div>
-                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--navy-primary)' }}>Active Taxpayer List (ATL)</div>
-                      <div style={{ fontSize: '0.68rem', color: 'var(--emerald-primary)', fontWeight: 600 }}>Verified Status: In Good Standing</div>
+                      <div style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--navy-primary)' }}>Active Taxpayer (ATL)</div>
+                      <div style={{ fontSize: '0.65rem', color: 'var(--emerald-primary)', fontWeight: 600 }}>Verified: In Good Standing</div>
                     </div>
                   </div>
 
                   <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--teal-primary)' }}>Full-Stack Engine</div>
-                    <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 600 }}>React • Cloud • FBR POS</div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--teal-primary)' }}>Full-Stack Engine</div>
+                    <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontWeight: 600 }}>React • Cloud • POS</div>
                   </div>
                 </div>
               </div>
@@ -329,6 +339,7 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
                   gridTemplateColumns: 'repeat(2, 1fr)',
                   gap: '0.75rem'
                 }}
+                className="hero-division-grid"
               >
                 <div 
                   onClick={() => onSelectDivision('tax')}
@@ -378,7 +389,7 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
 
         {/* Global Stats Counter Bar */}
         <div 
-          className="glass-card"
+          className="glass-card hero-stats-card"
           style={{
             marginTop: '4.5rem',
             padding: '2rem 2.5rem',
@@ -448,12 +459,40 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
             padding-right: 0 !important;
           }
         }
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
           .hero-checklist {
+            grid-template-columns: 1fr !important;
+          }
+          .hero-stats-card {
+            padding: 1.5rem 1rem !important;
+            margin-top: 2.75rem !important;
+          }
+        }
+        @media (max-width: 576px) {
+          .hero-cta-group {
+            flex-direction: column !important;
+            width: 100% !important;
+          }
+          .hero-cta-group .btn {
+            width: 100% !important;
+          }
+          .hero-division-grid {
             grid-template-columns: 1fr !important;
           }
           .stats-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.25rem !important;
+          }
+          .hero-showcase-card {
+            padding: 0.85rem !important;
+          }
+          .hero-status-banner {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            margin-top: 0.5rem !important;
+            border-radius: 0.5rem !important;
           }
         }
       `}</style>

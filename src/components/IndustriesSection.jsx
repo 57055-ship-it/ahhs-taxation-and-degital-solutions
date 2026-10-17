@@ -130,17 +130,19 @@ export default function IndustriesSection({ onOpenConsultation }) {
 
           {/* Right Column: Detailed Solution Display Card */}
           <div 
-            className="glass-card"
+            className="glass-card industry-detail-card"
             style={{
               padding: '2.5rem',
               borderRadius: '1.25rem',
               border: '1px solid var(--border-subtle)',
               background: 'var(--bg-card)',
               boxShadow: 'var(--shadow-card)',
-              position: 'relative'
+              position: 'relative',
+              width: '100%',
+              maxWidth: '100%'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
               <div 
                 style={{
                   width: '56px',
@@ -151,7 +153,8 @@ export default function IndustriesSection({ onOpenConsultation }) {
                   color: 'var(--ocean-primary)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  flexShrink: 0
                 }}
               >
                 <ActiveIcon size={28} />
@@ -160,7 +163,7 @@ export default function IndustriesSection({ onOpenConsultation }) {
                 <span className="badge badge-cyan" style={{ marginBottom: '0.25rem' }}>
                   Industry Blueprint
                 </span>
-                <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)' }}>
                   {activeIndustry.name}
                 </h3>
               </div>
@@ -207,10 +210,10 @@ export default function IndustriesSection({ onOpenConsultation }) {
             <button
               onClick={onOpenConsultation}
               className="btn btn-primary"
-              style={{ width: '100%', padding: '0.9rem' }}
+              style={{ width: '100%', padding: '0.9rem 1.25rem', whiteSpace: 'normal', textAlign: 'center' }}
             >
               <span>Schedule {activeIndustry.name} Strategy Session</span>
-              <ArrowRight size={17} />
+              <ArrowRight size={17} style={{ flexShrink: 0 }} />
             </button>
           </div>
         </div>
@@ -220,6 +223,12 @@ export default function IndustriesSection({ onOpenConsultation }) {
         @media (max-width: 992px) {
           .industries-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.75rem !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .industry-detail-card {
+            padding: 1.5rem 1rem !important;
           }
         }
       `}</style>

@@ -74,28 +74,31 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
 
         {/* Division Filter & Search Bar Controls */}
         <div 
+          className="service-filter-wrapper"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '1.25rem',
+            gap: '1rem',
             marginBottom: '2.5rem',
             padding: '0.85rem 1.25rem',
             borderRadius: '1rem',
             background: 'var(--bg-card)',
             border: '1px solid var(--border-subtle)',
-            boxShadow: 'var(--shadow-card)'
+            boxShadow: 'var(--shadow-card)',
+            width: '100%',
+            maxWidth: '100%'
           }}
         >
           {/* Division Switcher Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap', width: '100%', maxWidth: '600px' }}>
             <button
               onClick={() => onChangeDivision('all')}
               style={{
-                padding: '0.6rem 1.2rem',
+                padding: '0.55rem 1rem',
                 borderRadius: '0.55rem',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 border: activeDivision === 'all' ? '1px solid var(--border-gold)' : '1px solid transparent',
@@ -105,15 +108,15 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
                 boxShadow: activeDivision === 'all' ? '0 4px 12px var(--gold-glow)' : 'none'
               }}
             >
-              All Services ({SERVICES_DATA.length})
+              All ({SERVICES_DATA.length})
             </button>
 
             <button
               onClick={() => onChangeDivision('tax')}
               style={{
-                padding: '0.6rem 1.2rem',
+                padding: '0.55rem 1rem',
                 borderRadius: '0.55rem',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 border: activeDivision === 'tax' ? '1.5px solid var(--gold-primary)' : '1px solid transparent',
@@ -123,15 +126,15 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
                 boxShadow: activeDivision === 'tax' ? '0 4px 12px var(--gold-glow)' : 'none'
               }}
             >
-              🏛️ Taxation & Finance (8)
+              🏛️ Taxation & Finance
             </button>
 
             <button
               onClick={() => onChangeDivision('digital')}
               style={{
-                padding: '0.6rem 1.2rem',
+                padding: '0.55rem 1rem',
                 borderRadius: '0.55rem',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 fontWeight: 700,
                 cursor: 'pointer',
                 border: activeDivision === 'digital' ? '1.5px solid var(--teal-primary)' : '1px solid transparent',
@@ -141,12 +144,13 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
                 boxShadow: activeDivision === 'digital' ? '0 4px 12px rgba(2, 132, 199, 0.18)' : 'none'
               }}
             >
-              💻 Digital & Tech (8)
+              💻 Digital & Tech
             </button>
           </div>
 
           {/* Search Input Filter */}
           <div 
+            className="service-search-box"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -159,10 +163,10 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
               maxWidth: '300px'
             }}
           >
-            <Search size={16} style={{ color: 'var(--text-muted)' }} />
+            <Search size={16} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
             <input 
               type="text"
-              placeholder="Search services (e.g. FBR, SECP, React)..."
+              placeholder="Search services..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -187,7 +191,7 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
             return (
               <div
                 key={service.id}
-                className={`glass-card ${isTax ? 'glass-card-gold-hover' : 'glass-card-cyan-hover'}`}
+                className={`glass-card service-card ${isTax ? 'glass-card-gold-hover' : 'glass-card-cyan-hover'}`}
                 style={{
                   padding: '2rem',
                   display: 'flex',
@@ -326,6 +330,22 @@ export default function ServicesSection({ onSelectService, activeDivision, onCha
           </div>
         )}
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .service-card {
+            padding: 1.35rem 1rem !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .service-filter-wrapper {
+            padding: 0.75rem !important;
+          }
+          .service-search-box {
+            max-width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

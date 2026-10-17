@@ -294,6 +294,7 @@ export default function Footer({ onOpenConsultation }) {
 
         {/* Bottom Bar with Copyright & Back to Top */}
         <div 
+          className="footer-bottom-bar"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -307,7 +308,7 @@ export default function Footer({ onOpenConsultation }) {
           }}
         >
           <div>
-            © {new Date().getFullYear()} AHHS Taxation & Digital Solutions. All rights reserved. Redesigned with premium React architecture.
+            © {new Date().getFullYear()} AHHS Taxation & Digital Solutions. All rights reserved.
           </div>
 
           <button
@@ -351,6 +352,12 @@ export default function Footer({ onOpenConsultation }) {
         @media (max-width: 576px) {
           .footer-grid {
             grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+          .footer-bottom-bar {
+            flex-direction: column !important;
+            text-align: center !important;
+            justify-content: center !important;
           }
         }
       `}</style>

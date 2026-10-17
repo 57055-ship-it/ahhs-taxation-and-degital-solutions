@@ -75,6 +75,7 @@ export default function LeadershipSection({ onOpenConsultation }) {
                 >
                   {/* Photo Container */}
                   <div 
+                    className="leader-photo-box"
                     style={{
                       width: '100%',
                       aspectRatio: '4/5',
@@ -132,7 +133,10 @@ export default function LeadershipSection({ onOpenConsultation }) {
                 </div>
 
                 {/* Bio & Quote Body */}
-                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
+                <div 
+                  className="leader-card-body"
+                  style={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}
+                >
                   <p style={{ fontSize: '0.92rem', lineHeight: 1.65, color: 'var(--text-body)', marginBottom: '1.5rem' }}>
                     {leader.bio}
                   </p>
@@ -167,6 +171,7 @@ export default function LeadershipSection({ onOpenConsultation }) {
 
         {/* Credentials & Memberships Ribbon */}
         <div 
+          className="credentials-ribbon"
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -181,17 +186,17 @@ export default function LeadershipSection({ onOpenConsultation }) {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 700 }}>
-            <Award size={19} style={{ color: 'var(--gold-primary)' }} />
+            <Award size={19} style={{ color: 'var(--gold-primary)', flexShrink: 0 }} />
             <span>Fellow Member of ACCA (United Kingdom)</span>
           </div>
-          <span style={{ color: 'var(--border-medium)' }}>•</span>
+          <span className="ribbon-bullet" style={{ color: 'var(--border-medium)' }}>•</span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 700 }}>
-            <Scale size={19} style={{ color: 'var(--teal-primary)' }} />
+            <Scale size={19} style={{ color: 'var(--teal-primary)', flexShrink: 0 }} />
             <span>Lahore Tax Bar Association (LTBA) Advocates</span>
           </div>
-          <span style={{ color: 'var(--border-medium)' }}>•</span>
+          <span className="ribbon-bullet" style={{ color: 'var(--border-medium)' }}>•</span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 700 }}>
-            <Code2 size={19} style={{ color: '#10b981' }} />
+            <Code2 size={19} style={{ color: '#10b981', flexShrink: 0 }} />
             <span>Computer Science & Cyber Jurisprudence (BSCS • LLB)</span>
           </div>
         </div>
@@ -203,9 +208,30 @@ export default function LeadershipSection({ onOpenConsultation }) {
             grid-template-columns: 1fr !important;
           }
         }
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
           .leader-header-grid {
             grid-template-columns: 1fr !important;
+            padding: 1.25rem 1rem !important;
+            text-align: center;
+          }
+          .leader-photo-box {
+            max-width: 170px !important;
+            margin: 0 auto 0.75rem auto !important;
+          }
+          .leader-header-grid > div:last-child {
+            align-items: center !important;
+          }
+          .leader-card-body {
+            padding: 1.25rem 1rem !important;
+          }
+          .credentials-ribbon {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 1rem !important;
+            padding: 1.25rem 1rem !important;
+          }
+          .ribbon-bullet {
+            display: none !important;
           }
         }
       `}</style>

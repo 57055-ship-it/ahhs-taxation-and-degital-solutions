@@ -45,6 +45,7 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
 
   return (
     <div 
+      className="modal-backdrop-overlay"
       style={{
         position: 'fixed',
         inset: 0,
@@ -60,7 +61,7 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
       onClick={onClose}
     >
       <div 
-        className="glass-card"
+        className="glass-card consultation-modal-card"
         style={{
           width: '100%',
           maxWidth: '580px',
@@ -375,6 +376,12 @@ export default function ConsultationModal({ isOpen, onClose, preselectedService 
 
       <style>{`
         @media (max-width: 576px) {
+          .modal-backdrop-overlay {
+            padding: 0.75rem !important;
+          }
+          .consultation-modal-card {
+            padding: 1.35rem 1rem !important;
+          }
           .modal-row {
             grid-template-columns: 1fr !important;
           }

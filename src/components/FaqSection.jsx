@@ -68,6 +68,7 @@ export default function FaqSection({ onOpenConsultation }) {
                 <button
                   type="button"
                   onClick={() => toggleAccordion(idx)}
+                  className="faq-question-btn"
                   style={{
                     width: '100%',
                     padding: '1.25rem 1.6rem',
@@ -103,6 +104,7 @@ export default function FaqSection({ onOpenConsultation }) {
                 {/* Accordion Answer Body */}
                 {isOpen && (
                   <div 
+                    className="faq-answer-body"
                     style={{
                       padding: '0 1.6rem 1.6rem 1.6rem',
                       fontSize: '0.94rem',
@@ -122,6 +124,7 @@ export default function FaqSection({ onOpenConsultation }) {
 
         {/* Still have questions banner */}
         <div 
+          className="glass-card faq-banner"
           style={{
             maxWidth: '650px',
             margin: '0 auto',
@@ -158,6 +161,25 @@ export default function FaqSection({ onOpenConsultation }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .faq-question-btn {
+            padding: 1rem 1rem !important;
+          }
+          .faq-question-btn span {
+            font-size: 0.95rem !important;
+          }
+          .faq-answer-body {
+            padding: 0 1rem 1.25rem 1rem !important;
+            padding-top: 0.85rem !important;
+            font-size: 0.88rem !important;
+          }
+          .faq-banner {
+            padding: 1.35rem 1rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

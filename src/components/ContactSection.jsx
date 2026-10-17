@@ -88,7 +88,7 @@ export default function ContactSection() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Primary Address Card */}
             <div 
-              className="glass-card"
+              className="glass-card contact-info-card"
               style={{
                 padding: '2.25rem',
                 borderRadius: '1.25rem',
@@ -170,7 +170,7 @@ export default function ContactSection() {
 
             {/* Quick Contact Numbers */}
             <div 
-              className="glass-card"
+              className="glass-card contact-info-card"
               style={{
                 padding: '2.25rem',
                 borderRadius: '1.25rem',
@@ -240,7 +240,7 @@ export default function ContactSection() {
 
           {/* Right Column: Case Booking Form */}
           <div 
-            className="glass-card"
+            className="glass-card contact-form-card"
             style={{
               padding: '2.5rem',
               borderRadius: '1.25rem',
@@ -492,7 +492,10 @@ export default function ContactSection() {
                 </div>
 
                 {/* Action Buttons */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginTop: '0.5rem' }}>
+                <div 
+                  className="contact-action-grid"
+                  style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginTop: '0.5rem' }}
+                >
                   <button
                     type="submit"
                     className="btn btn-primary"
@@ -529,8 +532,17 @@ export default function ContactSection() {
             grid-template-columns: 1fr !important;
           }
         }
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
+          .contact-info-card,
+          .contact-form-card {
+            padding: 1.5rem 1.15rem !important;
+          }
           .form-row {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .contact-action-grid {
             grid-template-columns: 1fr !important;
           }
         }

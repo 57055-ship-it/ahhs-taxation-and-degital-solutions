@@ -7,6 +7,7 @@ export default function FloatingWhatsApp() {
 
   return (
     <div 
+      className="floating-whatsapp-container"
       style={{
         position: 'fixed',
         bottom: '24px',
@@ -21,6 +22,7 @@ export default function FloatingWhatsApp() {
       {/* Floating Prompt Tooltip */}
       {showTooltip && (
         <div 
+          className="floating-whatsapp-tooltip"
           style={{
             background: 'var(--bg-card)',
             border: '1.5px solid #25d366',
@@ -72,6 +74,7 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        className="floating-whatsapp-btn"
         style={{
           width: '58px',
           height: '58px',
@@ -94,8 +97,26 @@ export default function FloatingWhatsApp() {
           e.currentTarget.style.boxShadow = '0 6px 25px rgba(37, 211, 102, 0.5)';
         }}
       >
-        <MessageCircle size={30} />
+        <MessageCircle size={28} />
       </a>
+
+      <style>{`
+        @media (max-width: 576px) {
+          .floating-whatsapp-container {
+            bottom: 16px !important;
+            right: 16px !important;
+          }
+          .floating-whatsapp-tooltip {
+            max-width: calc(100vw - 36px) !important;
+            padding: 0.65rem 0.85rem !important;
+            font-size: 0.8rem !important;
+          }
+          .floating-whatsapp-btn {
+            width: 50px !important;
+            height: 50px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
