@@ -54,7 +54,7 @@ export default function WhyUsSection({ onOpenConsultation }) {
             style={{
               width: '100%',
               borderCollapse: 'collapse',
-              minWidth: '700px',
+              minWidth: '640px',
               textAlign: 'left'
             }}
           >
@@ -268,7 +268,8 @@ export default function WhyUsSection({ onOpenConsultation }) {
             display: flex;
           }
           .why-us-table-card {
-            padding: 1rem 0.5rem !important;
+            padding: 0 !important;
+            border-radius: 0.85rem !important;
           }
           .why-us-card {
             padding: 1.5rem 1.25rem !important;

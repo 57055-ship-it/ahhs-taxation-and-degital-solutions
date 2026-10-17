@@ -26,33 +26,41 @@ export default function Hero({ onOpenConsultation, onSelectDivision }) {
         background: 'linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%)'
       }}
     >
-      {/* Subtle ambient light glows */}
+      {/* Ambient background glow strictly contained */}
       <div 
         style={{
           position: 'absolute',
-          top: '-15%',
-          left: '10%',
-          width: '550px',
-          height: '550px',
-          background: 'radial-gradient(circle, rgba(197, 155, 39, 0.08) 0%, transparent 70%)',
-          filter: 'blur(60px)',
+          inset: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
           zIndex: 0,
-          pointerEvents: 'none'
+          maxWidth: '100vw'
         }}
-      />
-      <div 
-        style={{
-          position: 'absolute',
-          top: '15%',
-          right: '-5%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(2, 132, 199, 0.07) 0%, transparent 70%)',
-          filter: 'blur(70px)',
-          zIndex: 0,
-          pointerEvents: 'none'
-        }}
-      />
+        aria-hidden="true"
+      >
+        <div 
+          style={{
+            position: 'absolute',
+            top: '-15%',
+            left: '10%',
+            width: 'min(100vw, 550px)',
+            height: 'min(100vw, 550px)',
+            background: 'radial-gradient(circle, rgba(197, 155, 39, 0.08) 0%, transparent 70%)',
+            filter: 'blur(60px)'
+          }}
+        />
+        <div 
+          style={{
+            position: 'absolute',
+            top: '15%',
+            right: '-5%',
+            width: 'min(100vw, 600px)',
+            height: 'min(100vw, 600px)',
+            background: 'radial-gradient(circle, rgba(2, 132, 199, 0.07) 0%, transparent 70%)',
+            filter: 'blur(70px)'
+          }}
+        />
+      </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div 

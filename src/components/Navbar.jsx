@@ -30,9 +30,9 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'Services', href: '#services' },
-    { name: 'Quote Estimator', href: '#calculator' },
-    { name: 'Compliance Matrix', href: '#compliance' },
-    { name: 'Why AHHS', href: '#why-us' },
+    { name: 'Estimator', href: '#calculator' },
+    { name: 'Compliance', href: '#compliance' },
+    { name: 'Why Us', href: '#why-us' },
     { name: 'Leadership', href: '#leadership' },
     { name: 'Reviews', href: '#reviews' },
     { name: 'Contact', href: '#contact' },
@@ -182,11 +182,11 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
 
           {/* Desktop Nav Links */}
           <div 
-            className="hide-mobile"
+            className="hide-mobile desktop-nav-links"
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1.4rem'
+              gap: '1.25rem'
             }}
           >
             {navLinks.map((link) => (
@@ -234,12 +234,12 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
               {theme === 'dark' ? (
                 <>
                   <Sun size={15} style={{ color: '#f59e0b' }} />
-                  <span>Light Mode</span>
+                  <span className="theme-toggle-text">Light Mode</span>
                 </>
               ) : (
                 <>
                   <Moon size={15} style={{ color: 'var(--gold-dark)' }} />
-                  <span>Dark Mode</span>
+                  <span className="theme-toggle-text">Dark Mode</span>
                 </>
               )}
             </button>
@@ -412,7 +412,18 @@ export default function Navbar({ onOpenConsultation, theme = 'light', onToggleTh
           color: #ffffff !important;
           text-decoration: underline;
         }
-        @media (max-width: 992px) {
+        @media (max-width: 1220px) {
+          .desktop-nav-links {
+            gap: 0.85rem !important;
+          }
+          .desktop-nav-links a {
+            font-size: 0.86rem !important;
+          }
+          .theme-toggle-text {
+            display: none !important;
+          }
+        }
+        @media (max-width: 1060px) {
           .hide-mobile {
             display: none !important;
           }

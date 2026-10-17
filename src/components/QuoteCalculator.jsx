@@ -394,7 +394,7 @@ export default function QuoteCalculator({ onOpenConsultation }) {
       </div>
 
       <style>{`
-        @media (max-width: 992px) {
+        @media (max-width: 1040px) {
           .calculator-grid {
             grid-template-columns: 1fr !important;
             gap: 1.75rem !important;
