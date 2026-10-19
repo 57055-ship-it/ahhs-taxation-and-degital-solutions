@@ -29,6 +29,7 @@
   --gold-glow: rgba(197, 155, 39, 0.18);
 
   --teal-primary: #0284c7;     /* Ocean / Tech Blue from Crest */
+  --ocean-primary: #0284c7;
   --teal-dark: #0369a1;
   --teal-light: #e0f2fe;
 
@@ -97,6 +98,7 @@
   --gold-glow: rgba(245, 158, 11, 0.25);
 
   --teal-primary: #38bdf8;     /* Sky / Tech Cyan */
+  --ocean-primary: #38bdf8;
   --teal-dark: #0284c7;
   --teal-light: rgba(56, 189, 248, 0.16);
 

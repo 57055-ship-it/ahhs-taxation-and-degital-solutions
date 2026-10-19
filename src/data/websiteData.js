@@ -367,6 +367,7 @@ export const LEADERSHIP_DATA = [
     credentials: "BSCS • LLB",
     specialization: "Digital Systems Architecture, Cyber Law & Enterprise Technology",
     photo: "/hassan-shahzad.jpeg",
+    linkedin: "https://www.linkedin.com/in/hassan-shahzad-8bba3035a/",
     bio: "Uniquely holding credentials in Computer Science (BSCS) and Jurisprudence (LLB), Hassan serves as the visionary bridge between modern technology engineering and regulatory governance. Under his leadership, AHHS develops cutting-edge software ecosystems that are legally compliant by design, transforming how modern enterprises scale.",
     quote: "We don't merely write code or file papers; we build sovereign, compliant digital engines that elevate our clients into market leaders."
   }
